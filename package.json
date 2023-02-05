@@ -1,0 +1,22 @@
+{
+  "name": "odin-sketchbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style": "sass --watch src/sass/main.scss src/sass/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clairvynce/odin-sketchbook.git"
+  },
+  "author": "clairvynce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clairvynce/odin-sketchbook/issues"
+  },
+  "homepage": "https://github.com/clairvynce/odin-sketchbook#readme",
+  "devDependencies": {
+    "sass": "^1.58.0"
+  }
+}
