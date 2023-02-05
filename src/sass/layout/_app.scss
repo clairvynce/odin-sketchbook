@@ -1,0 +1,14 @@
+$app-padding: 50px 0;
+$app-bg: map-get($map: $color, $key: "light");
+
+.app {
+  flex-grow: 1;
+  padding: $app-padding;
+  background-color: $app-bg;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

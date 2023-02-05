@@ -1,0 +1,14 @@
+$content-width: 1040px;
+$size-padding: 0 20px;
+
+.container {
+  max-width: $content-width;
+  padding: $size-padding;
+  margin: 0 auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

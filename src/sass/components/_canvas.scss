@@ -1,0 +1,15 @@
+$canvas-width: 500px;
+$canvas-height: 500px;
+$cabvas-bg: map-get($map: $color, $key: "white");
+$cell-border: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+.canvas {
+  display: grid;
+  width: $canvas-width;
+  height: $canvas-height;
+  background-color: $cabvas-bg;
+
+  &__cell {
+    border: $cell-border;
+  }
+}

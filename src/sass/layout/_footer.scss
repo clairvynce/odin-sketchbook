@@ -1,0 +1,38 @@
+$footer-padding: 10px 0;
+$footer-bg: map-get($map: $color, $key: "light");
+$footer-font-size: map-get($map: $font-size, $key: "small");
+$footer-text-col: map-get($map: $color, $key: "dark");
+
+.footer {
+  padding: $footer-padding;
+  background-color: $footer-bg;
+  font-size: $footer-font-size;
+  color: $footer-text-col;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__logo {
+    width: 24px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: all .3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

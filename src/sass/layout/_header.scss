@@ -1,0 +1,18 @@
+$header-bg: map-get($map: $color, $key: "dark");
+$header-padding: 20px 0;
+$header-text-col: map-get($map: $color, $key: "light");
+
+.header {
+  padding: 20px 0;
+  background-color: $header-bg;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__heading {
+    font-weight: 700;
+    color: $header-text-col;
+  }
+}
