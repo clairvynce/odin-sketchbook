@@ -1,0 +1,20 @@
+$color-width: 52px;
+$color-heigth: 52px;
+$color-radius: map-get($map: $border-radius, $key: "round");
+
+.color {
+  width: $color-width;
+  height: $color-heigth;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  &::-webkit-color-swatch {
+    border-radius: $color-radius;
+    border: none;
+  }
+}

@@ -1,7 +1,7 @@
 $color: (
   "light": #d8e1e9,
   "dark": #2d2d2a,
-  "white": #ffffff
+  "white": #ffffff,
 );
 
 $font-size: (
@@ -9,3 +9,8 @@ $font-size: (
   "regular": 18px,
   "small": 16px,
 );
+
+$border-radius: (
+  "round": 50%,
+  "default": 9px,
+)
