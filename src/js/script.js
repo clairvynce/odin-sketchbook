@@ -1,16 +1,26 @@
 "use strict";
 
-let currentColor = "black";
+const DEFAULT_GRID = 16;
+const DEFAULT_COLOR = "#000000";
 
 let isMouseDown = false;
 window.onmousedown = () => isMouseDown = true;
 window.onmouseup = () => isMouseDown = false;
 
-const createBtn = document.querySelector(".btn");
+createCanvasGrid(DEFAULT_GRID);
+let currentColor = DEFAULT_COLOR;
 
-createBtn.addEventListener("click", () => {
-  const gridSize = +prompt("Hello");
-  createCanvasGrid(gridSize);
+const colorPicker = document.querySelector(".color");
+colorPicker.addEventListener("change", () => {
+  currentColor = colorPicker.value;
+})
+
+const gridSlider = document.querySelector(".slider");
+gridSlider.addEventListener("change", () => {
+  const sliderOutput = document.querySelector(".slider__output");
+  sliderOutput.textContent = `${gridSlider.value} x ${gridSlider.value}`;
+
+  createCanvasGrid(gridSlider.value);
 })
 
 function createCanvasGrid(size) {
