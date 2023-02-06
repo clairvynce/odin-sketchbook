@@ -16,7 +16,17 @@
   </header>
   <main class="app">
     <div class="container app__container">
-      <!-- <div class="app__controls"></div> -->
+      <div class="app__controls">
+        <input type="color" name="color" id="color" class="color controls__item" value="#000">
+        <button class="btn btn_default controls__item btn_active">Default mode</button>
+        <button class="btn btn_random controls__item">Random mode</button>
+        <button class="btn btn_mono controls__item">Mono mode</button>
+        <button class="btn btn_clear controls__item">Clear</button>
+        <div class="controls__item controls__item_slider">
+          <input type="range" name="range" id="range" class="slider" min="4" max="64" step="2" value="16">
+          <p class="slider__output">16 x 16</p>
+        </div>
+      </div>
       <div class="app__canvas canvas"></div>
     </div>
   </main>

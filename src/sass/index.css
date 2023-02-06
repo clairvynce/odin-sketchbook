@@ -16,6 +16,30 @@ body {
   font-size: 18px;
 }
 
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 6px;
+  border: 1px solid #2d2d2a;
+  font-family: inherit;
+  background: none;
+  font-size: 18px;
+  color: #2d2d2a;
+  border-radius: 9px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn_active {
+  background-color: #2d2d2a;
+  color: #d8e1e9;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.btn:active {
+  transform: scale(0.95);
+}
+
 .canvas {
   display: grid;
   width: 500px;
@@ -24,6 +48,30 @@ body {
 }
 .canvas__cell {
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.color {
+  width: 52px;
+  height: 52px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.color::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+.slider {
+  cursor: pointer;
+}
+.slider__output {
+  text-align: center;
+  font-size: 18px;
+  color: #2d2d2a;
 }
 
 .container {
@@ -60,6 +108,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+}
+.app__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
 }
 
 .footer {

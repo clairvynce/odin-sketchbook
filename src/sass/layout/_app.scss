@@ -1,5 +1,7 @@
 $app-padding: 50px 0;
 $app-bg: map-get($map: $color, $key: "light");
+$items-gap: 35px;
+$app-gap: 50px;
 
 .app {
   flex-grow: 1;
@@ -10,5 +12,13 @@ $app-bg: map-get($map: $color, $key: "light");
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $items-gap;
   }
 }
