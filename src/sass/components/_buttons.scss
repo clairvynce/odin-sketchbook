@@ -1,0 +1,36 @@
+$btn-width: 100%;
+$btn-padding: 10px 6px;
+$btn-font-size: map-get($map: $font-size, $key: "regular");
+$btn-bg: none;
+$btn-col: map-get($map: $color, $key: "dark");
+$btn-col-active: map-get($map: $color, $key: "light");
+$btn-border: 1px solid map-get($map: $color, $key: "dark");
+$btn-border-radius: map-get($map: $border-radius, $key: "default");
+$btn-transition: all .3s;
+
+.btn {
+  display: inline-block;
+  width: $btn-width;
+  padding: $btn-padding;
+  border: $btn-border;
+  font-family: inherit;
+  background: $btn-bg;
+  font-size: $btn-font-size;
+  color: $btn-col;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+  cursor: pointer;
+
+  &_active {
+    background-color: $btn-col;
+    color: $btn-col-active;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

@@ -1,0 +1,9 @@
+$font-family-default: 'Inter', sans-serif;
+$font-weight-default: 400;
+$font-size-default: map-get($map: $font-size, $key: "regular");
+
+body {
+  font-family: $font-family-default;
+  font-weight: $font-weight-default;
+  font-size: $font-size-default;
+}

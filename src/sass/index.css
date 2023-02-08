@@ -1,0 +1,149 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 6px;
+  border: 1px solid #2d2d2a;
+  font-family: inherit;
+  background: none;
+  font-size: 18px;
+  color: #2d2d2a;
+  border-radius: 9px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn_active {
+  background-color: #2d2d2a;
+  color: #d8e1e9;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.btn:active {
+  transform: scale(0.95);
+}
+
+.canvas {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  background-color: #ffffff;
+}
+.canvas__cell {
+  border: 1px solid rgba(170, 170, 170, 0.1);
+}
+
+.color {
+  width: 52px;
+  height: 52px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.color::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+.slider {
+  cursor: pointer;
+}
+.slider__output {
+  text-align: center;
+  font-size: 18px;
+  color: #2d2d2a;
+}
+
+.container {
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 20px 0;
+  background-color: #2d2d2a;
+}
+.header__container {
+  display: flex;
+  justify-content: center;
+}
+.header__heading {
+  font-weight: 700;
+  color: #d8e1e9;
+}
+
+.app {
+  flex-grow: 1;
+  padding: 50px 0;
+  background-color: #d8e1e9;
+}
+.app__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.app__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.footer {
+  padding: 10px 0;
+  background-color: #d8e1e9;
+  font-size: 16px;
+  color: #2d2d2a;
+}
+.footer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.footer__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer__logo {
+  width: 24px;
+}
+.footer__link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+}
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=index.css.map */

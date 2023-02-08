@@ -1,0 +1,12 @@
+$slider-font-size: map-get($map: $font-size, $key: "regular");
+$slider-output-col: map-get($map: $color, $key: "dark");
+
+.slider {
+  cursor: pointer;
+
+  &__output  {
+    text-align: center;
+    font-size: $slider-font-size;
+    color: $slider-output-col;
+  }
+}
