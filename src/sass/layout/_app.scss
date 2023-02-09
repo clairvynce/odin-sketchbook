@@ -22,3 +22,9 @@ $app-gap: 50px;
     gap: $items-gap;
   }
 }
+
+.controls__item_slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -65,12 +65,6 @@ body {
   border: none;
 }
 
-.controls__item_slider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .slider {
   cursor: pointer;
 }
@@ -120,6 +114,12 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 35px;
+}
+
+.controls__item_slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer {
