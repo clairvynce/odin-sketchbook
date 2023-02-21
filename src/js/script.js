@@ -1,89 +1,104 @@
 "use strict";
 
-const DEFAULT_GRID = 16;
-const DEFAULT_COLOR = "#000000";
 const DEFAULT_MODE = "default";
+const DEFAULT_COLOR = "#000000";
+const DEFAULT_GRID = 16;
 
-let currentMode = DEFAULT_MODE;
+let currentMode, isMouseDown;
 
-let isMouseDown = false;
-window.onmousedown = () => isMouseDown = true;
-window.onmouseup = () => isMouseDown = false;
-
-const modeButtons = document.querySelectorAll(".btn");
-modeButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    for (let i = 0; i < modeButtons.length; i++) {
-      modeButtons[i].classList.remove("btn_active");
-    }
-    if (event.target.classList.contains("btn_clear")) {
-      modeButtons[0].classList.add("btn_active");
-      createCanvasGrid(gridSlider.value);
-      currentMode = "default";
-    } else {
-      event.target.classList.add("btn_active");
-      handleModeChange(event.target.classList);
-    }
-  })
-})
-
-function handleModeChange(mode) {
-  if (mode.contains("btn_default")) {
-    currentMode = "default";
-  } else if (mode.contains("btn_random")) {
-    currentMode = "random";
-  } else if (mode.contains("btn_mono")) {
-    currentMode = "mono";
-  }
-  console.log(currentMode);
-}
-
-createCanvasGrid(DEFAULT_GRID);
-let currentColor = DEFAULT_COLOR;
+document.addEventListener("mousedown", () => (isMouseDown = true));
+document.addEventListener("mouseup", () => (isMouseDown = false));
 
 const colorPicker = document.querySelector(".color");
-colorPicker.addEventListener("change", () => {
-  currentColor = colorPicker.value;
-})
+
+const initializeApp = () => {
+  createCanvasGrid(DEFAULT_GRID);
+  colorPicker.value = DEFAULT_COLOR;
+  currentMode = "default";
+  isMouseDown = false;
+};
+
+const createCanvasGrid = (pixels) => {
+  const canvas = document.querySelector(".canvas");
+  canvas.innerHTML = "";
+  canvas.style.gridTemplateColumns = `repeat(${pixels}, 1fr)`;
+
+  for (let i = 1; i <= pixels * pixels; i++) {
+    const newPixel = document.createElement("div");
+    newPixel.classList.add("canvas__cell");
+    canvas.appendChild(newPixel);
+  }
+  listenPixels();
+};
+
+initializeApp();
+
+const drawOnCanvas = (pixel) => {
+  if (currentMode === "default" && isMouseDown) {
+    pixel.style.backgroundColor = colorPicker.value;
+  } else if (currentMode === "random" && isMouseDown) {
+    pixel.style.backgroundColor = getRandomColor();
+  } else if (currentMode === "mono" && isMouseDown) {
+    pixel.style.backgroundColor = getMonoColor();
+  }
+};
 
 const gridSlider = document.querySelector(".slider");
 gridSlider.addEventListener("change", () => {
-  const sliderOutput = document.querySelector(".slider__output");
-  sliderOutput.textContent = `${gridSlider.value} x ${gridSlider.value}`;
-
   createCanvasGrid(gridSlider.value);
-})
+  const gridOutput = document.querySelector(".slider__output");
+  gridOutput.textContent = `${gridSlider.value} x ${gridSlider.value}`;
+});
 
-function createCanvasGrid(size) {
-  const canvas = document.querySelector(".canvas");
-  canvas.innerHTML = "";
-  canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+function listenPixels() {
+  const canvasPixels = document.querySelectorAll(".canvas__cell");
+  canvasPixels.forEach((pixel) => {
+    pixel.addEventListener("mouseover", (evt) => {
+      drawOnCanvas(evt.target);
+    });
+  });
+}
 
-  for (let i = 1; i <= size * size; i++) {
-    const newCell = document.createElement("div");
-    newCell.classList.add("canvas__cell");
-    canvas.appendChild(newCell);
+function getRandomColor() {
+  return `rgb(${Math.floor(Math.random() * 256)},
+              ${Math.floor(Math.random() * 256)},
+              ${Math.floor(Math.random() * 256)})`;
+}
+
+// function getMonoColor() {
+//   console.log("Hello world");
+// }
+
+const clearBtn = document.querySelector(".btn_clear");
+clearBtn.addEventListener("click", () => {
+  createCanvasGrid(gridSlider.value);
+});
+
+const switchCurrentMode = (modeName) => {
+  switch (modeName) {
+    case "default":
+      currentMode = "default";
+      break;
+    case "random":
+      currentMode = "random";
+      break;
+    case "mono":
+      currentMode = "mono";
+      break;
+    default:
+      currentMode = "default";
   }
+};
 
-  drawOnCanvas();
-}
+const modeBtns = document.querySelectorAll(".btn_mode");
+modeBtns.forEach((button) => {
+  button.addEventListener("click", (evt) => {
+    switchCurrentMode(evt.target.dataset.mode);
 
-function drawOnCanvas() {
-  const canvasCells = document.querySelectorAll(".canvas__cell");
+    for (let i = 0; i < modeBtns.length; i++) {
+      modeBtns[i].classList.remove("btn_active");
+    }
 
-  canvasCells.forEach((cell) => {
-    cell.addEventListener("mouseover", (event) => {
-      if (isMouseDown && currentMode === "default") {
-        event.target.style.backgroundColor = currentColor;
-      } else if (isMouseDown && currentMode === "random") {
-        event.target.style.backgroundColor = `rgb(${getRandomNumber(1, 255)},
-                                                  ${getRandomNumber(1, 255)},
-                                                  ${getRandomNumber(1, 255)})`;
-      }
-    })
-  })
-}
-
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+    evt.target.classList.add("btn_active");
+  });
+});
