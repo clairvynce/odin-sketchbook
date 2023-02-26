@@ -5,7 +5,6 @@ $slider-output-col: map-get($map: $color, $key: "dark");
   cursor: pointer;
 
   &__output  {
-    text-align: center;
     font-size: $slider-font-size;
     color: $slider-output-col;
   }
