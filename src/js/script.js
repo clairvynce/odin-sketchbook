@@ -33,13 +33,18 @@ const createCanvasGrid = (pixels) => {
 
 initializeApp();
 
+let currentMonoColor = 255;
 const drawOnCanvas = (pixel) => {
   if (currentMode === "default" && isMouseDown) {
     pixel.style.backgroundColor = colorPicker.value;
   } else if (currentMode === "random" && isMouseDown) {
     pixel.style.backgroundColor = getRandomColor();
   } else if (currentMode === "mono" && isMouseDown) {
-    pixel.style.backgroundColor = getMonoColor();
+    const BASE_MONO_COLOR = 255;
+    currentMonoColor = Math.floor(currentMonoColor - BASE_MONO_COLOR * 0.1);
+    pixel.style.backgroundColor = `rgb(${currentMonoColor}, ${currentMonoColor}, ${currentMonoColor})`;
+
+    if (currentMonoColor < 0) currentMonoColor = BASE_MONO_COLOR;
   }
 };
 
@@ -64,10 +69,6 @@ function getRandomColor() {
               ${Math.floor(Math.random() * 256)},
               ${Math.floor(Math.random() * 256)})`;
 }
-
-// function getMonoColor() {
-//   console.log("Hello world");
-// }
 
 const clearBtn = document.querySelector(".btn_clear");
 clearBtn.addEventListener("click", () => {
