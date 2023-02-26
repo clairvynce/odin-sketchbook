@@ -1,47 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/sass/index.css">
-  <title>Odin | Sketchbook</title>
-</head>
-<body>
-  <header class="header">
-    <div class="container header__container">
-      <h1 class="header__heading heading_primary">Etch-a-Sketch</h1>
-    </div>
-  </header>
-  <main class="app">
-    <div class="container app__container">
-      <div class="app__controls">
-        <input type="color" name="color" id="color" class="color controls__item" value="#000000">
-        <button class="btn btn_default controls__item btn_active">Default mode</button>
-        <button class="btn btn_random controls__item">Random mode</button>
-        <button class="btn btn_mono controls__item">Mono mode</button>
-        <button class="btn btn_clear controls__item">Clear</button>
-        <div class="controls__item controls__item_slider">
-          <input type="range" name="range" id="range" class="slider" min="4" max="64" step="2" value="16">
-          <output class="slider__output">16 x 16</output>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/sass/index.css" />
+    <title>Odin | Sketchbook</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <h1 class="header__heading heading_primary">Etch-a-Sketch</h1>
       </div>
-      <div class="app__canvas canvas"></div>
-    </div>
-  </main>
-  <footer class="footer">
-    <div class="container footer__container">
-      <p class="footer__text">
-        <span class="footer__year">2023.</span>
-        All rights reserved.
-      </p>
-      <a href="https://github.com/clairvynce" class="footer__link" target="_blank">
-        <img src="src/image/github-mark.svg" alt="Github logo" class="footer__logo">
-        @clairvynce
-      </a>
-    </div>
-  </footer>
-  <script src="src/js/script.js"></script>
-</body>
+    </header>
+    <main class="app">
+      <div class="container app__container">
+        <div class="app__controls">
+          <input
+            type="color"
+            name="color"
+            id="color"
+            class="color controls__item"
+          />
+          <button
+            class="btn btn_mode controls__item btn_active"
+            data-mode="default"
+          >
+            Default mode
+          </button>
+          <button class="btn btn_mode controls__item" data-mode="random">
+            Random mode
+          </button>
+          <button class="btn btn_mode controls__item" data-mode="mono">
+            Mono mode
+          </button>
+          <button class="btn btn_clear controls__item">Clear</button>
+          <div class="controls__item controls__item_slider">
+            <input
+              type="range"
+              name="range"
+              id="range"
+              class="slider"
+              min="4"
+              max="64"
+              step="2"
+              value="16"
+            />
+            <output class="slider__output">16 x 16</output>
+          </div>
+        </div>
+        <div class="app__canvas canvas"></div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer__container">
+        <p class="footer__text">
+          <span class="footer__year">2023.</span>
+          All rights reserved.
+        </p>
+        <a
+          href="https://github.com/clairvynce"
+          class="footer__link"
+          target="_blank"
+        >
+          <img
+            src="src/image/github-mark.svg"
+            alt="Github logo"
+            class="footer__logo"
+          />
+          @clairvynce
+        </a>
+      </div>
+    </footer>
+    <script src="src/js/script.js"></script>
+  </body>
 </html>
